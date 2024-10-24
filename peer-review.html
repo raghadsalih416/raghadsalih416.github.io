@@ -19,10 +19,10 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- Main Content Wrapper -->
     <div class="peer-review-page">
         <h1>Professional Writing (WRIT 300)</h1>
@@ -53,86 +53,150 @@
             <!-- Form Section (Right) -->
             <div class="form-section">
                 <!-- Form Information -->
-                <div class="info-grid">
-                    <div>
-                        <label for="name">Name:</label>
-                        <p class="info-display">Sofia Silver</p>
-                    </div>
-                    <div>
-                        <label for="peer">Peer:</label>
-                        <p class="info-display">Joe Doe</p>
-                    </div>
-                    <div>
-                        <label for="assignment">Assignment:</label>
-                        <p class="info-display">Speech 1</p>
-                    </div>
-                    <div>
-                        <label for="class">Class:</label>
-                        <p class="info-display">Professional Writing</p>
-                    </div>
-                    <div>
-                        <label for="group">Group:</label>
-                        <p class="info-display">Group 2</p>
-                    </div>
-                    <div>
-                        <label for="professor">Professor:</label>
-                        <p class="info-display">Dr. Mike</p>
-                    </div>
-                </div>
-
-                <!-- Rating Section -->
-                <h3>Peer Review Rating (1-5)</h3>
-                <p>Please rate your classmate's work based on the following criteria, using a scale of 1 to 5.</p>
-                <div class="rating-grid">
-                    <div>
-                        <p>How would you rate the quality of work?</p>
-                        <div class="rating-options">
-                            <input type="radio" name="quality" value="1"> 1
-                            <input type="radio" name="quality" value="2"> 2
-                            <input type="radio" name="quality" value="3"> 3
-                            <input type="radio" name="quality" value="4"> 4
-                            <input type="radio" name="quality" value="5"> 5
+                <form id="peer-review-form">
+                    <div class="info-grid">
+                        <div>
+                            <label for="name">Name:</label>
+                            <p class="info-display">Sofia Silver</p>
+                            <input type="hidden" id="memberName" value="Sofia Silver"> <!-- Hidden input for name -->
+                        </div>
+                        <div>
+                            <label for="peer">Peer:</label>
+                            <p class="info-display">Joe Doe</p>
+                            <input type="hidden" id="peerName" value="Joe Doe"> <!-- Hidden input for peer name -->
+                        </div>
+                        <div>
+                            <label for="assignment">Assignment:</label>
+                            <p class="info-display">Speech 1</p>
+                            <input type="hidden" id="assignment" value="Speech 1"> <!-- Hidden input for assignment -->
+                        </div>
+                        <div>
+                            <label for="class">Class:</label>
+                            <p class="info-display">Professional Writing</p>
+                            <input type="hidden" id="className" value="Professional Writing"> <!-- Hidden input for class -->
+                        </div>
+                        <div>
+                            <label for="group">Group:</label>
+                            <p class="info-display">Group 2</p>
+                            <input type="hidden" id="groups" value="Group 2"> <!-- Hidden input for group -->
+                        </div>
+                        <div>
+                            <label for="professor">Professor:</label>
+                            <p class="info-display">Dr. Mike</p>
+                            <input type="hidden" id="professor" value="Dr. Mike"> <!-- Hidden input for professor -->
                         </div>
                     </div>
 
-                    <div>
-                        <p>How reliable was this person in meeting deadlines and fulfilling responsibilities?</p>
-                        <div class="rating-options">
-                            <input type="radio" name="reliability" value="1"> 1
-                            <input type="radio" name="reliability" value="2"> 2
-                            <input type="radio" name="reliability" value="3"> 3
-                            <input type="radio" name="reliability" value="4"> 4
-                            <input type="radio" name="reliability" value="5"> 5
+                    <!-- Rating Section -->
+                    <h3>Peer Review Rating (1-5)</h3>
+                    <p>Please rate your classmate's work based on the following criteria, using a scale of 1 to 5.</p>
+                    <div class="rating-grid">
+                        <div>
+                            <p>How would you rate the quality of work?</p>
+                            <div class="rating-options">
+                                <input type="radio" name="quality" value="1"> 1
+                                <input type="radio" name="quality" value="2"> 2
+                                <input type="radio" name="quality" value="3"> 3
+                                <input type="radio" name="quality" value="4"> 4
+                                <input type="radio" name="quality" value="5"> 5
+                            </div>
+                        </div>
+
+                        <div>
+                            <p>How reliable was this person in meeting deadlines and fulfilling responsibilities?</p>
+                            <div class="rating-options">
+                                <input type="radio" name="reliability" value="1"> 1
+                                <input type="radio" name="reliability" value="2"> 2
+                                <input type="radio" name="reliability" value="3"> 3
+                                <input type="radio" name="reliability" value="4"> 4
+                                <input type="radio" name="reliability" value="5"> 5
+                            </div>
+                        </div>
+
+                        <div>
+                            <p>Communicated and contributed to the team?</p>
+                            <div class="rating-options">
+                                <input type="radio" name="communication" value="1"> 1
+                                <input type="radio" name="communication" value="2"> 2
+                                <input type="radio" name="communication" value="3"> 3
+                                <input type="radio" name="communication" value="4"> 4
+                                <input type="radio" name="communication" value="5"> 5
+                            </div>
+                        </div>
+
+                        <div>
+                            <p>Used appropriate language and free from grammatical errors?</p>
+                            <div class="rating-options">
+                                <input type="radio" name="language" value="1"> 1
+                                <input type="radio" name="language" value="2"> 2
+                                <input type="radio" name="language" value="3"> 3
+                                <input type="radio" name="language" value="4"> 4
+                                <input type="radio" name="language" value="5"> 5
+                            </div>
                         </div>
                     </div>
 
-                    <div>
-                        <p>Communicated and contributed to the team?</p>
-                        <div class="rating-options">
-                            <input type="radio" name="communication" value="1"> 1
-                            <input type="radio" name="communication" value="2"> 2
-                            <input type="radio" name="communication" value="3"> 3
-                            <input type="radio" name="communication" value="4"> 4
-                            <input type="radio" name="communication" value="5"> 5
-                        </div>
-                    </div>
-
-                    <div>
-                        <p>Used appropriate language and free from grammatical errors?</p>
-                        <div class="rating-options">
-                            <input type="radio" name="language" value="1"> 1
-                            <input type="radio" name="language" value="2"> 2
-                            <input type="radio" name="language" value="3"> 3
-                            <input type="radio" name="language" value="4"> 4
-                            <input type="radio" name="language" value="5"> 5
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="submit-btn">Submit</button>
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
             </div>
         </div>
     </div>
+
+    <!-- JavaScript to handle form submission -->
+    <script>
+        document.getElementById('peer-review-form').addEventListener('submit', async function(event) {
+            event.preventDefault();  // Prevents the default form submission
+
+            // Get the form values
+            const memberName = document.getElementById('memberName').value;
+            const peerName = document.getElementById('peerName').value;
+            const assignment = document.getElementById('assignment').value;
+            const className = document.getElementById('className').value;
+            const groups = document.getElementById('groups').value;
+            const professor = document.getElementById('professor').value;
+
+            const selfEvalScore = document.querySelector('input[name="quality"]:checked')?.value || 0; // Default to 0 if not checked
+            const peerRaterAvgScore = document.querySelector('input[name="reliability"]:checked')?.value || 0; // Default to 0 if not checked
+            const externalRateAvgScore = document.querySelector('input[name="communication"]:checked')?.value || 0; // Default to 0 if not checked
+            const teamSurveyScore = document.querySelector('input[name="language"]:checked')?.value || 0; // Default to 0 if not checked
+
+            try {
+                // Send a POST request to your Heroku backend
+                const response = await fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/submit-peer-review', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        memberName,
+                        peerName,
+                        evaluationId: Math.floor(Math.random() * 100000), // Generate a random evaluation ID for demonstration
+                        selfEvalScore,
+                        peerRaterAvgScore,
+                        externalRateAvgScore,
+                        teamSurveyScore,
+                        assignment,
+                        className,
+                        groups,
+                        professor
+                    }),
+                });
+
+                // Parse the response
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Peer review submitted successfully!');
+                    // Optionally redirect or clear the form here
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error during submission:', error);
+                alert('There was an error during submission. Please try again later.');
+            }
+        });
+    </script>
 </body>
 </html>
