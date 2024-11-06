@@ -42,7 +42,7 @@
                         <p>View what other student Peer Review you have received</p>
                     </div>
                 </a>
-                <a href="peer-review.html" class="sidebar-link">
+                <a href="peer-review.html?course=Professional%20Writing%20(Writ%20300)" class="sidebar-link">
                     <div class="sidebar-box">
                         <h3>Peer Review</h3>
                         <p>Submit a Peer Review for others</p>
@@ -145,6 +145,28 @@
 
     <!-- JavaScript to handle form submission -->
 <!-- JavaScript to handle form submission -->
+
+<script>
+    // Function to get the course name from the URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Set the course name in the <h1> heading
+    document.addEventListener('DOMContentLoaded', function() {
+        const courseName = getQueryParam('course');
+        
+        if (courseName) {
+            document.title = `Peer Review Form - ${courseName}`;
+            document.querySelector('h1').textContent = courseName;
+        } else {
+            alert('Course name not found. Redirecting to courses page.');
+            window.location.href = 'courses.html';
+        }
+    });
+</script>
+
 <script>
     document.getElementById('peer-review-form').addEventListener('submit', async function(event) {
         event.preventDefault();  // Prevents the default form submission
