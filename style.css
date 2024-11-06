@@ -309,24 +309,34 @@ body {
     gap: 20px;
 }
 
-/* Sidebar */
+/* Center content-container on the page */
+.content-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 100vh;           /* Full viewport height */
+    padding: 20px;
+}
+/* Adjust the sidebar styling to center boxes */
 .sidebar {
-    width: 50%;
-    float: middle;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Center the sidebar boxes */
 }
 
 .sidebar-box {
+    width: 300px; /* Set a fixed width for each box */
+    padding: 20px;
     background-color: #333;
     color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
     text-align: center;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Add hover effect to the boxes */
+/* Make the sidebar-boxes respond to hover */
 .sidebar-box:hover {
     transform: scale(1.05);
     background-color: #4CAF50;
