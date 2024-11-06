@@ -311,8 +311,8 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 30%;
-    float: left;
+    width: 50%;
+    float: middle;
 }
 
 .sidebar-box {
