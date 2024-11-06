@@ -65,33 +65,37 @@
             document.getElementById("addClassPopup").style.display = "none";
         }
 
-        // Function to fetch and display courses based on professor's email
         async function fetchAndDisplayCourses() {
-            const email = localStorage.getItem('teacherEmail');
-            console.log('Attempting to fetch courses for:', email);
-
+            const email = localStorage.getItem('teacherEmail'); // Ensure the teacher's email is set in localStorage after login
+    
             if (!email) {
                 alert("Email not found. Please log in again.");
                 window.location.href = 'login.html';
                 return;
             }
-
+    
             try {
                 const response = await fetch(`https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/get-courses?email=${email}`);
                 const result = await response.json();
-                console.log('Result from get-courses:', result);
-
+    
                 if (result.success) {
-                    const courseGrid = document.getElementById('courseGrid');
-                    courseGrid.innerHTML = ''; // Clear existing courses
-
-                    // Loop through courses and create boxes
-                    for (let course of [result.courses.Course1, result.courses.Course2, result.courses.Course3]) {
-                        if (course) {
+                    const courseContainer = document.querySelector('.course-grid');
+                    courseContainer.innerHTML = ''; // Clear existing content
+    
+                    // Use the same loop as before to create course boxes based on result.courses
+                    for (let course in result.courses) {
+                        if (result.courses[course]) {
                             const courseBox = document.createElement('div');
                             courseBox.className = 'course-box';
-                            courseBox.innerHTML = `<h3>${course}</h3>`;
-                            courseGrid.appendChild(courseBox);
+                            courseBox.innerHTML = `<h3>${result.courses[course]}</h3>`;
+    
+                            // Optional: Add a click event listener for navigation
+                            courseBox.addEventListener('click', () => {
+                                const courseName = encodeURIComponent(result.courses[course]);
+                                window.location.href = `course-page.html?course=${courseName}`;
+                            });
+    
+                            courseContainer.appendChild(courseBox);
                         }
                     }
                 } else {
