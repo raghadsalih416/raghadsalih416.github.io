@@ -57,5 +57,29 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        // Retrieve the course name from the URL and update the page
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseName = getQueryParam('course');
+            
+            if (courseName) {
+                // Set the page title and heading
+                document.title = courseName;
+                document.querySelector('h1').textContent = courseName;
+            } else {
+                alert('Course name not found. Redirecting to courses.');
+                window.location.href = 'courses.html';
+            }
+        });
+    </script>
+    
 </body>
 </html>
