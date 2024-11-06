@@ -41,7 +41,7 @@
                     <label><input type="radio" name="role" value="student" checked> Student</label>
                     <label><input type="radio" name="role" value="teacher"> Teacher</label>
                 </div>
-                
+
                 <button type="submit">Log In</button>
 
                 <div class="extra-options">
@@ -70,10 +70,14 @@
                     },
                     body: JSON.stringify({ email, password, role }),
                 });
+
+
       
                 const result = await response.json();
       
                 if (result.success) {
+                    // Store the student ID in localStorage
+                    localStorage.setItem('studentId', studentNumber);
                     window.location.href = result.redirectPage;
                 } else {
                     alert(result.message);

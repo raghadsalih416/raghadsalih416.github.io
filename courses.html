@@ -46,9 +46,44 @@
 
     <!-- JavaScript to handle button click -->
     <script>
-        document.getElementById('courseButton').addEventListener('click', function() {
-            window.location.href = 'course-page.html'; // Replace with your actual course page filename
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Retrieve student ID from localStorage
+            const studentId = localStorage.getItem('studentId');
+            if (!studentId) {
+                alert('Student ID not found. Please log in again.');
+                window.location.href = 'login.html';
+                return;
+            }
+    
+            try {
+                // Fetch courses for this student from the backend
+                const response = await fetch(`https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/courses/${studentId}`);
+                const result = await response.json();
+    
+                if (result.success) {
+                    const courseContainer = document.querySelector('.course-grid');
+    
+                    // Clear existing course boxes
+                    courseContainer.innerHTML = '';
+    
+                    // Add courses dynamically based on result
+                    for (let course in result.courses) {
+                        if (result.courses[course]) { // Ensure course exists
+                            const courseBox = document.createElement('div');
+                            courseBox.className = 'course-box';
+                            courseBox.innerHTML = `<h3>${result.courses[course]}</h3>`;
+                            courseContainer.appendChild(courseBox);
+                        }
+                    }
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+                alert('There was an error loading courses. Please try again later.');
+            }
         });
     </script>
+    
 </body>
 </html>
