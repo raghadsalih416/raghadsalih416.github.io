@@ -85,32 +85,35 @@
         }
 
         // Function to fetch course details based on the course name
-        async function fetchCourseDetails() {
-            const courseName = getQueryParam('course'); // Assumes `course` is in the query string
+// Function to fetch course details based on the course name
+async function fetchCourseDetails() {
+    const courseName = getQueryParam('course'); // Assumes `course` is in the query string
 
-            if (!courseName) {
-                alert("Course name not found. Redirecting to courses.");
-                window.location.href = 'courses.html';
-                return;
-            }
+    if (!courseName) {
+        alert("Course name not found. Redirecting to courses.");
+        window.location.href = 'courses.html';
+        return;
+    }
 
-            try {
-                const response = await fetch(`https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/get-course-details?courseName=${encodeURIComponent(courseName)}`);
-                const result = await response.json();
+    try {
+        const response = await fetch(`https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/get-course-details?courseName=${encodeURIComponent(courseName)}`);
+        const result = await response.json();
 
-                if (result.success) {
-                    document.getElementById("popupCourseName").textContent = result.course.CourseName;
-                    document.getElementById("popupSemester").textContent = result.course.Semester;
-                    document.getElementById("popupYear").textContent = result.course.Year;
-                    document.getElementById("popupTime").textContent = result.course.Time;
-                } else {
-                    alert(result.message);
-                }
-            } catch (error) {
-                console.error("Error fetching course details:", error);
-                alert("There was an error loading course details. Please try again later.");
-            }
+        if (result.success && result.course) {
+            // Update with exact keys from the response
+            document.getElementById("popupCourseName").textContent = result.course.COURSENAME || 'N/A';
+            document.getElementById("popupSemester").textContent = result.course.SEMESTER || 'N/A';
+            document.getElementById("popupYear").textContent = result.course.YEAR || 'N/A';
+            document.getElementById("popupTime").textContent = result.course.TIME || 'N/A';
+        } else {
+            alert(result.message || "Course details could not be found.");
         }
+    } catch (error) {
+        console.error("Error fetching course details:", error);
+        alert("There was an error loading course details. Please try again later.");
+    }
+}
+
 
         // Function to get query parameters from the URL
         function getQueryParam(param) {
