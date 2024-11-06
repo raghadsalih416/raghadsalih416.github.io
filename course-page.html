@@ -22,18 +22,10 @@
 
     <!-- Course Detail Section -->
     <div class="course-page">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <h1>Course Details</h1>
 
-        <button class="add-class-button" onclick="openCoursePopup()">Open Course Details</button>
+        <!-- Button to Open Course Details Popup -->
+        <button class="add-class-button" onclick="openPopup()">Open Course Details</button>
 
         <div class="content-container">
             <div class="sidebar">
@@ -59,7 +51,6 @@
         </div>
 
         <!-- Course Details Popup -->
-        <!-- Add Class Popup Form -->
         <div id="addClassPopup" class="popup-overlay" style="display: none;">
             <div class="popup-content">
                 <h2>Course Details</h2>
@@ -70,7 +61,6 @@
                 <button type="button" onclick="closePopup()">Close</button>
             </div>
         </div>
-
     </div>
 
     <!-- JavaScript to handle popup and fetch course details -->
@@ -80,20 +70,26 @@
             document.getElementById("addClassPopup").style.display = "flex";
             fetchCourseDetails(); // Fetch the details when the popup opens
         }
-        
+
+        // Function to close the popup
         function closePopup() {
             document.getElementById("addClassPopup").style.display = "none";
         }
-        
 
         // Function to fetch course details based on the course name
         async function fetchCourseDetails() {
-            const courseName = getQueryParam('course'); // Assumes `courseName` is in the query string.
-        
+            const courseName = getQueryParam('course'); // Assumes `course` is in the query string
+
+            if (!courseName) {
+                alert("Course name not found. Redirecting to courses.");
+                window.location.href = 'courses.html';
+                return;
+            }
+
             try {
                 const response = await fetch(`https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/get-course-details?courseName=${encodeURIComponent(courseName)}`);
                 const result = await response.json();
-        
+
                 if (result.success) {
                     document.getElementById("popupCourseName").textContent = result.course.CourseName;
                     document.getElementById("popupSemester").textContent = result.course.Semester;
@@ -107,7 +103,6 @@
                 alert("There was an error loading course details. Please try again later.");
             }
         }
-        
 
         // Function to get query parameters from the URL
         function getQueryParam(param) {
