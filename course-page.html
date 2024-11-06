@@ -28,6 +28,9 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
         <h1>Course Details</h1>
 
         <button class="add-class-button" onclick="openCoursePopup()">Open Course Details</button>
@@ -56,30 +59,32 @@
         </div>
 
         <!-- Course Details Popup -->
-        <div id="courseDetailsPopup" class="popup-overlay" style="display: none;">
+        <!-- Add Class Popup Form -->
+        <div id="addClassPopup" class="popup-overlay" style="display: none;">
             <div class="popup-content">
-                <h2>Course Information</h2>
+                <h2>Course Details</h2>
                 <p><strong>Course Name:</strong> <span id="popupCourseName"></span></p>
                 <p><strong>Semester:</strong> <span id="popupSemester"></span></p>
                 <p><strong>Year:</strong> <span id="popupYear"></span></p>
                 <p><strong>Time:</strong> <span id="popupTime"></span></p>
-                <button type="button" onclick="closeCoursePopup()">Close</button>
+                <button type="button" onclick="closePopup()">Close</button>
             </div>
         </div>
+
     </div>
 
     <!-- JavaScript to handle popup and fetch course details -->
     <script>
         // Function to open the popup
-        function openCoursePopup() {
-            document.getElementById("courseDetailsPopup").style.display = "flex";
-            fetchCourseDetails();
+        function openPopup() {
+            document.getElementById("addClassPopup").style.display = "flex";
+            fetchCourseDetails(); // Fetch the details when the popup opens
         }
-
-        // Function to close the popup
-        function closeCoursePopup() {
-            document.getElementById("courseDetailsPopup").style.display = "none";
+        
+        function closePopup() {
+            document.getElementById("addClassPopup").style.display = "none";
         }
+        
 
         // Function to fetch course details based on the course name
         async function fetchCourseDetails() {
