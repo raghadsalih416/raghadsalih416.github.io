@@ -488,7 +488,6 @@ body {
 .add-class-button:hover {
     background-color: #0056b3;
 }
-
 /* Popup Overlay Styling */
 .popup-overlay {
     position: fixed;
@@ -496,42 +495,27 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default, will be set to "flex" by JS */
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it appears above other content */
+    z-index: 1000;
 }
 
-/* Popup Content Styling */
 .popup-content {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 80%;
     max-width: 500px;
     text-align: center;
 }
 
-/* Existing Popup Form Styling */
+
+/* Popup Header and Button Styling */
 .popup-content h2 {
     margin-bottom: 15px;
-    text-align: center;
-}
-
-.popup-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.popup-content input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 .popup-content button {
@@ -548,3 +532,4 @@ body {
 .popup-content button:hover {
     background-color: #0056b3;
 }
+

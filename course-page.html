@@ -75,9 +75,11 @@
     <script>
         // Function to open the popup
         function openPopup() {
+            console.log("Popup opened"); // Debugging line
             document.getElementById("addClassPopup").style.display = "flex";
-            fetchCourseDetails(); // Fetch the details when the popup opens
+            fetchCourseDetails();
         }
+        
 
         // Function to close the popup
         function closePopup() {
