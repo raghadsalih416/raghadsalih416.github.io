@@ -468,3 +468,84 @@ body {
 .submit-btn:hover {
     background-color: white;
 }
+
+/* Add Class Button */
+.add-class-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.add-class-button:hover {
+    background-color: #0056b3;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Above other content */
+}
+
+/* Popup Content Box */
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+/* Popup Form Styling */
+.popup-content h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}

@@ -78,6 +78,7 @@
                 if (result.success) {
                     // Store the student ID in localStorage
                     localStorage.setItem('studentId', password);
+                    localStorage.setItem('teacherEmail', email);
                     window.location.href = result.redirectPage;
                 } else {
                     alert(result.message);
