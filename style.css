@@ -523,6 +523,7 @@ body {
 /* Ensure the overlay displays and centers the popup */
 /* CSS to ensure popup displays correctly */
 .popup-overlay {
+    display: none; /* Ensures the popup is hidden initially */
     position: fixed;
     top: 0;
     left: 0;
