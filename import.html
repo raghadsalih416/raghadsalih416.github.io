@@ -29,8 +29,7 @@
             const rows = textContent.trim().split('\n');
             const data = rows.map(row => row.split('\t'));  // Assumes data is tab-separated
 
-            // Sending data to server
-            fetch('/upload-roster', {
+            fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/upload-roster', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -45,6 +44,7 @@
                 document.getElementById('statusMessage').textContent = 'Upload failed. Try again.';
                 console.error('Error:', error);
             });
+            
         });
     </script>
 </body>
