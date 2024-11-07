@@ -75,10 +75,11 @@
     <script>
         // Function to open the popup
         function openPopup() {
-            console.log("Popup opened"); // Debugging line
-            document.getElementById("addClassPopup").style.display = "flex";
+            console.log("Popup opened");
+            document.getElementById("addClassPopup").style.display = "flex"; 
             fetchCourseDetails();
         }
+        
         
 
         // Function to close the popup
@@ -103,7 +104,7 @@ async function fetchCourseDetails() {
 
         if (result.success && result.course) {
             // Update with exact keys from the response
-            document.getElementById("popupCourseName").textContent = result.course.COURSENAME || 'N/A';
+            document.getElementById("popupCourseName").textContent = "Marketing (MKTG) 101";
             document.getElementById("popupSemester").textContent = result.course.SEMESTER || 'N/A';
             document.getElementById("popupYear").textContent = result.course.YEAR || 'N/A';
             document.getElementById("popupTime").textContent = result.course.TIME || 'N/A';
