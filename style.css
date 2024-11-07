@@ -490,20 +490,20 @@ body {
 }
 /* Popup Overlay Styling */
 /* Ensure the overlay displays and centers the popup */
+/* CSS to ensure popup displays correctly */
 .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex; /* Use flex to center content */
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex; /* Flexbox to center the content */
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Style the popup content */
 .popup-content {
     background-color: white;
     padding: 20px;
@@ -512,8 +512,9 @@ body {
     width: 80%;
     max-width: 500px;
     text-align: center;
-    color: black; /* Ensure text is visible */
+    color: black;
 }
+
 
 
 

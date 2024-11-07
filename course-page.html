@@ -33,7 +33,7 @@
         <h1>Course Details</h1>
 
         <!-- Button to Open Course Details Popup -->
-        <button class="add-class-button" onclick="openPopup()">Open Course Details</button>
+        <button class="class-info-button" onclick="openPopup()">Open Course Details</button>
 
         <div class="content-container">
             <div class="sidebar">
@@ -59,16 +59,18 @@
         </div>
 
         <!-- Course Details Popup -->
-        <div id="addClassPopup" class="popup-overlay" style="display: none;">
+        <!-- Hard-coded content to verify popup display -->
+        <div id="classInfoPopup" class="popup-overlay" style="display: flex;">
             <div class="popup-content">
                 <h2>Course Details</h2>
-                <p><strong>Course Name:</strong> <span id="popupCourseName"></span></p>
-                <p><strong>Semester:</strong> <span id="popupSemester"></span></p>
-                <p><strong>Year:</strong> <span id="popupYear"></span></p>
-                <p><strong>Time:</strong> <span id="popupTime"></span></p>
+                <p><strong>Course Name:</strong> Marketing (MKTG) 101</p>
+                <p><strong>Semester:</strong> Fall</p>
+                <p><strong>Year:</strong> 2024</p>
+                <p><strong>Time:</strong> 1:00 PM - 2:30 PM</p>
                 <button type="button" onclick="closePopup()">Close</button>
             </div>
         </div>
+
     </div>
 
     <!-- JavaScript to handle popup and fetch course details -->
@@ -76,7 +78,7 @@
         // Function to open the popup
         function openPopup() {
             console.log("Popup opened");
-            document.getElementById("addClassPopup").style.display = "flex"; 
+            document.getElementById("classInfoPopup").style.display = "flex"; 
         
             // Temporarily hard-code values to see if they display correctly
             document.getElementById("popupCourseName").textContent = "Marketing (MKTG) 101";
@@ -90,7 +92,7 @@
 
         // Function to close the popup
         function closePopup() {
-            document.getElementById("addClassPopup").style.display = "none";
+            document.getElementById("classInfoPopup").style.display = "none";
         }
 
         // Function to fetch course details based on the course name
