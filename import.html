@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Class Roster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Upload Class Roster</h1>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" accept=".txt" required>
+        <button type="submit">Upload and Insert</button>
+    </form>
+    
+    <p id="statusMessage"></p>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const fileInput = document.getElementById('fileInput').files[0];
+            if (!fileInput) {
+                document.getElementById('statusMessage').textContent = 'Please select a file';
+                return;
+            }
+
+            const textContent = await fileInput.text();
+            const rows = textContent.trim().split('\n');
+            const data = rows.map(row => row.split('\t'));  // Assumes data is tab-separated
+
+            // Sending data to server
+            fetch('/upload-roster', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ roster: data })
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('statusMessage').textContent = result.message;
+            })
+            .catch(error => {
+                document.getElementById('statusMessage').textContent = 'Upload failed. Try again.';
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
