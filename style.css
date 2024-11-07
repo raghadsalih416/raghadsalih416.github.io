@@ -488,6 +488,26 @@ body {
 .add-class-button:hover {
     background-color: #0056b3;
 }
+
+/* Add Class Button */
+.class-info-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.class-info-button:hover {
+    background-color: #0056b3;
+}
 /* Popup Overlay Styling */
 /* Ensure the overlay displays and centers the popup */
 /* CSS to ensure popup displays correctly */
