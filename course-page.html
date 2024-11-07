@@ -77,8 +77,14 @@
         function openPopup() {
             console.log("Popup opened");
             document.getElementById("addClassPopup").style.display = "flex"; 
-            fetchCourseDetails();
+        
+            // Temporarily hard-code values to see if they display correctly
+            document.getElementById("popupCourseName").textContent = "Marketing (MKTG) 101";
+            document.getElementById("popupSemester").textContent = "Fall";
+            document.getElementById("popupYear").textContent = "2024";
+            document.getElementById("popupTime").textContent = "1:00 PM - 2:30 PM";
         }
+        
         
         
 
