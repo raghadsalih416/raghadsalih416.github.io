@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Upload Class Roster</h1>
-    <form id="uploadForm">
-        <input type="file" id="fileInput" accept=".txt" required>
-        <button type="submit">Upload and Insert</button>
-    </form>
-    
-    <p id="statusMessage"></p>
+    <div class="upload-container">
+        <img src="images/smu-logo.png" alt="SMU Logo" class="logo"> <!-- Update path as necessary -->
+        <h1>Import Class Roster</h1>
+        
+        <form id="uploadForm" class="upload-form">
+            <div class="file-drop-area" id="fileDropArea">
+                <span class="upload-icon">⬆️</span>
+                <p>Drag & Drop your files or</p>
+                <button type="button" class="browse-button" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                <input type="file" id="fileInput" accept=".txt" style="display: none;" required>
+                <p class="supported-types">Supported types: .csv, .xml, .txt</p>
+            </div>
+            <button type="submit" class="submit-button">Upload and Insert</button>
+        </form>
+        
+        <p id="statusMessage" class="status-message"></p>
+
+        <footer class="footer">
+            Suggested Format: Course ID, Start Date, End Date, Course Name, Semester, Professor ID, Student First and Last Name, SMU Student Number, Student Email etc.
+        </footer>
+    </div>
 
     <script>
         document.getElementById('uploadForm').addEventListener('submit', async function(event) {
@@ -44,7 +58,6 @@
                 document.getElementById('statusMessage').textContent = 'Upload failed. Try again.';
                 console.error('Error:', error);
             });
-            
         });
     </script>
 </body>
