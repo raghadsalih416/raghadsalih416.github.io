@@ -469,27 +469,19 @@ body {
     background-color: white;
 }
 
-/* Add Class Button */
-.add-class-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    position: fixed;
-    top: 120px; /* Position the add-class-button */
+/* Button Container */
+.button-container {
+    position: fixed; /* Fixed if you want it in the same place on the viewport */
+    top: 120px;      /* Adjust this as necessary for vertical alignment on the page */
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between buttons */
     z-index: 1000;
-    transition: background-color 0.3s ease;
 }
 
-.add-class-button:hover {
-    background-color: #0056b3;
-}
-
-/* Import Roster Button - Positioned below Add Class Button */
+/* Individual Button Styles */
+.add-class-button,
 .import-roster-button {
     background-color: #007bff;
     color: white;
@@ -498,16 +490,14 @@ body {
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
-    position: fixed;
-    top: 180px; /* Adjust this value to position it below the add-class-button */
-    right: 20px;
-    z-index: 1000;
     transition: background-color 0.3s ease;
 }
 
+.add-class-button:hover,
 .import-roster-button:hover {
     background-color: #0056b3;
 }
+
 
 
 /* Add Class Button */
