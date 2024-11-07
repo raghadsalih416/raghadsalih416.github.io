@@ -109,7 +109,7 @@ async function fetchCourseDetails() {
 
         if (result.success && result.course) {
             // Update with exact keys from the response
-            document.getElementById("popupCourseName").textContent = "Marketing (MKTG) 101";
+            document.getElementById("popupCourseName").textContent = result.course.COURSENAME || 'N/A';
             document.getElementById("popupSemester").textContent = result.course.SEMESTER || 'N/A';
             document.getElementById("popupYear").textContent = result.course.YEAR || 'N/A';
             document.getElementById("popupTime").textContent = result.course.TIME || 'N/A';
