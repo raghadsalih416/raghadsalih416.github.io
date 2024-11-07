@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Class Roster</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
 </head>
 <body>
     <div class="upload-container">
-        <img src="images/smu-logo.png" alt="SMU Logo" class="logo"> <!-- Update path as necessary -->
+        <img src="images/file.png" alt="SMU Logo" class="logo"> <!-- Update the path as needed -->
         <h1>Import Class Roster</h1>
         
         <form id="uploadForm" class="upload-form">
@@ -16,7 +16,7 @@
                 <span class="upload-icon">⬆️</span>
                 <p>Drag & Drop your files or</p>
                 <button type="button" class="browse-button" onclick="document.getElementById('fileInput').click()">Browse Files</button>
-                <input type="file" id="fileInput" accept=".txt" style="display: none;" required>
+                <input type="file" id="fileInput" accept=".txt, .csv, .xml" style="display: none;" required>
                 <p class="supported-types">Supported types: .csv, .xml, .txt</p>
             </div>
             <button type="submit" class="submit-button">Upload and Insert</button>
@@ -25,7 +25,7 @@
         <p id="statusMessage" class="status-message"></p>
 
         <footer class="footer">
-            Suggested Format: Course ID, Start Date, End Date, Course Name, Semester, Professor ID, Student First and Last Name, SMU Student Number, Student Email etc.
+            Suggested Format: Course ID, Start Date, End Date, Course Name, Semester, Professor ID, Student First and Last Name, SMU Student Number, Student Email, etc.
         </footer>
     </div>
 
