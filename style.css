@@ -479,7 +479,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     position: fixed;
-    top: 120px;
+    top: 120px; /* Position the add-class-button */
     right: 20px;
     z-index: 1000;
     transition: background-color 0.3s ease;
@@ -488,6 +488,27 @@ body {
 .add-class-button:hover {
     background-color: #0056b3;
 }
+
+/* Import Roster Button - Positioned below Add Class Button */
+.import-roster-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 180px; /* Adjust this value to position it below the add-class-button */
+    right: 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.import-roster-button:hover {
+    background-color: #0056b3;
+}
+
 
 /* Add Class Button */
 .class-info-button {
