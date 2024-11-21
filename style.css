@@ -830,3 +830,28 @@ h1 {
 .schedule-btn:hover {
     background: #007bff;
 }
+/* Style for the buttons container */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center align buttons */
+    gap: 20px; /* Add spacing between buttons */
+    margin-top: 20px; /* Space from elements above */
+}
+
+/* Style for both buttons */
+.class-info-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto; /* Allow buttons to size based on text */
+}
+
+.class-info-button:hover {
+    background-color: #0056b3;
+}
