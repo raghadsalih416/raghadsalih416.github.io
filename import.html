@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Class Roster</title>
+    <title>Import Class Roster</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
 </head>
 <body>
@@ -19,9 +19,8 @@
         </ul>
     </nav>
     <div class="upload-container">
-        <img src="images/file.png" alt="SMU Logo" class="logo"> <!-- Update the path as needed -->
+        <img src="images/file.png" alt="SMU Logo" class="logo"> <!-- Logo -->
         <h1>Import Class Roster</h1>
-        
         <form id="uploadForm" class="upload-form">
             <div class="file-drop-area" id="fileDropArea">
                 <span class="upload-icon">⬆️</span>
@@ -32,15 +31,15 @@
             </div>
             <button type="submit" class="submit-button">Upload and Insert</button>
         </form>
-        
         <p id="statusMessage" class="status-message"></p>
-
+        <p class="footer">
+            Suggested Format: Course ID, Start Date, End Date, Course Name, Semester, Professor ID, Student First and Last Name, SMU Student Number, Student Email etc.
+        </p>
     </div>
 
     <script>
         document.getElementById('uploadForm').addEventListener('submit', async function(event) {
             event.preventDefault();
-            
             const fileInput = document.getElementById('fileInput').files[0];
             if (!fileInput) {
                 document.getElementById('statusMessage').textContent = 'Please select a file';
@@ -49,14 +48,12 @@
 
             const textContent = await fileInput.text();
             const rows = textContent.trim().split('\n');
-            const data = rows.map(row => row.split('\t'));  // Assumes data is tab-separated
+            const data = rows.map(row => row.split('\t')); // Assumes tab-separated data
 
             fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/upload-roster', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ roster: data })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ roster: data }),
             })
             .then(response => response.json())
             .then(result => {
