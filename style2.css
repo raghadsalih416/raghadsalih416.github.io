@@ -1,11 +1,11 @@
 /* General Reset */
-* {
+.import-page * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.import-page body {
     font-family: 'Arial', sans-serif;
     color: #fff;
     background-color: #000;
@@ -18,7 +18,7 @@ body {
 }
 
 /* Navbar Styling */
-.navbar {
+.import-page .navbar {
     background-color: white;
     width: 100%;
     padding: 10px 15px;
@@ -30,39 +30,39 @@ body {
     z-index: 1000;
 }
 
-.navbar .logo img {
+.import-page .navbar .logo img {
     height: 50px;
 }
 
-.navbar .nav-links {
+.import-page .navbar .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-.navbar .nav-links a {
+.import-page .navbar .nav-links a {
     text-decoration: none;
     color: black;
     font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
-.navbar .nav-links a:hover {
+.import-page .navbar .nav-links a:hover {
     color: brown;
 }
 
 /* Upload Container Styling */
-.upload-container {
+.import-page .upload-container {
     text-align: center;
     padding: 100px 20px; /* Account for fixed navbar */
 }
 
-.upload-container img {
+.import-page .upload-container img {
     width: 150px; /* Logo size */
     margin-bottom: 20px;
 }
 
-.upload-container h1 {
+.import-page .upload-container h1 {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 20px;
@@ -70,7 +70,7 @@ body {
 }
 
 /* File Drop Area Styling */
-.file-drop-area {
+.import-page .file-drop-area {
     background-color: #333;
     border: 2px dashed #666;
     border-radius: 10px;
@@ -83,18 +83,18 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.file-drop-area:hover {
+.import-page .file-drop-area:hover {
     background-color: #444;
 }
 
-.upload-icon {
+.import-page .upload-icon {
     font-size: 3rem;
     color: #888;
     margin-bottom: 10px;
 }
 
 /* Browse Button Styling */
-.browse-button {
+.import-page .browse-button {
     background-color: black;
     color: white;
     border: 2px solid white;
@@ -106,13 +106,13 @@ body {
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
-.browse-button:hover {
+.import-page .browse-button:hover {
     background-color: #555;
     transform: scale(1.05);
 }
 
 /* Submit Button Styling */
-.submit-button {
+.import-page .submit-button {
     background-color: #28a745;
     color: white;
     padding: 10px 20px;
@@ -124,20 +124,20 @@ body {
     width: auto;
 }
 
-.submit-button:hover {
+.import-page .submit-button:hover {
     background-color: #218838;
     transform: scale(1.05);
 }
 
 /* Status Message */
-.status-message {
+.import-page .status-message {
     margin-top: 20px;
     font-size: 1rem;
     color: #ffcc00;
 }
 
 /* Footer Styling */
-.footer {
+.import-page .footer {
     font-size: 0.8rem;
     color: #aaa;
     margin-top: 30px;
