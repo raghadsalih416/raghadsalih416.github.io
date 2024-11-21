@@ -1,0 +1,145 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #000;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure content is vertically centered */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: white;
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: brown;
+}
+
+/* Upload Container Styling */
+.upload-container {
+    text-align: center;
+    padding: 100px 20px; /* Account for fixed navbar */
+}
+
+.upload-container img {
+    width: 150px; /* Logo size */
+    margin-bottom: 20px;
+}
+
+.upload-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* File Drop Area Styling */
+.file-drop-area {
+    background-color: #333;
+    border: 2px dashed #666;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ccc;
+    width: 80%;
+    max-width: 500px; /* Constrain size */
+    transition: background-color 0.3s ease;
+}
+
+.file-drop-area:hover {
+    background-color: #444;
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Browse Button Styling */
+.browse-button {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.browse-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Submit Button Styling */
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    width: auto;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Status Message */
+.status-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #ffcc00;
+}
+
+/* Footer Styling */
+.footer {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 30px;
+    line-height: 1.5;
+}
