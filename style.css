@@ -697,3 +697,16 @@ body {
     margin-top: 30px;
     line-height: 1.5;
 }
+/* Unique styling for buttons in the course details page */
+#course-buttons-container {
+    display: flex; /* Align buttons in a row */
+    gap: 20px; /* Add spacing between buttons */
+    justify-content: center; /* Center align the buttons */
+    margin: 20px 0; /* Add some margin around the container */
+}
+
+#course-buttons-container .class-info-button {
+    padding: 10px 20px; /* Adjust button padding for better appearance */
+    font-size: 16px; /* Consistent font size */
+    cursor: pointer; /* Add pointer cursor for better UX */
+}
