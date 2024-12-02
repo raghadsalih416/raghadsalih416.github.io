@@ -85,9 +85,19 @@
         }
 
         // Function to redirect to Schedule Evaluation page
-        function redirectToSchedule() {
-            window.location.href = 'schedule-evaluation.html';
-        }
+// Function to redirect to Schedule Evaluation page with course query parameter
+function redirectToSchedule() {
+    const courseName = getQueryParam('course'); // Get course name from the current page's URL
+
+    if (!courseName) {
+        alert("Course name not found. Cannot proceed to scheduling.");
+        return;
+    }
+
+    // Redirect to the Schedule Evaluation page with the course query parameter
+    window.location.href = `schedule-evaluation.html?course=${encodeURIComponent(courseName)}`;
+}
+
 
         // Function to close the popup
         function closePopup() {
@@ -124,10 +134,12 @@
         }
 
         // Function to get query parameters from the URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+// Function to get query parameters from the URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
 
         // Set page title and heading dynamically based on course name in URL
         document.addEventListener('DOMContentLoaded', function() {

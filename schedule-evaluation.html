@@ -15,28 +15,29 @@
         <!-- Header Section -->
         <div class="header-section">
             <img src="images/file.png" alt="SMU Logo" class="logo">
-            <h1 class="header-title">Class Roster/Create Groups</h1>
+            <h1 class="header-title">Schedule Evaluations</h1>
         </div>
 
         <!-- Class and Professor Details -->
         <div class="details-row">
             <div class="detail-box">
                 <label>Class Name</label>
-                <p class="detail-value">Data Modelling and Visualisation</p>
+                <p class="detail-value">Loading...</p>
             </div>
             <div class="detail-box">
-                <label>Professor</label>
-                <p class="detail-value">Benjamin Lee, He Jianzhong</p>
+                <label>Semester</label>
+                <p class="detail-value">Loading...</p>
             </div>
             <div class="detail-box">
-                <label>CRN</label>
-                <p class="detail-value">ACCT 415</p>
+                <label>Year</label>
+                <p class="detail-value">Loading...</p>
             </div>
             <div class="detail-box">
                 <label>Time</label>
-                <p class="detail-value">Tue, 12pm - 3:15pm</p>
+                <p class="detail-value">Loading...</p>
             </div>
         </div>
+        
 
         <!-- Calendar and Input Section -->
         <div class="schedule-row">
@@ -85,5 +86,47 @@
             });
         });
     </script>
+
+    <script>
+        // Function to fetch course details
+        async function fetchCourseDetails() {
+            const courseName = getQueryParam('course'); // Get the course name from the URL query parameter
+    
+            if (!courseName) {
+                alert("Course name not found. Redirecting to courses.");
+                window.location.href = 'courses.html';
+                return;
+            }
+    
+            try {
+                // Fetch data from the backend
+                const response = await fetch(`https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/get-course-details?courseName=${encodeURIComponent(courseName)}`);
+                const result = await response.json();
+    
+                if (result.success && result.course) {
+                    // Dynamically update the detail boxes
+                    document.querySelector('.details-row .detail-box:nth-child(1) .detail-value').textContent = result.course.COURSENAME || 'N/A';
+                    document.querySelector('.details-row .detail-box:nth-child(2) .detail-value').textContent = result.course.SEMESTER || 'N/A';
+                    document.querySelector('.details-row .detail-box:nth-child(3) .detail-value').textContent = result.course.YEAR || 'N/A';
+                    document.querySelector('.details-row .detail-box:nth-child(4) .detail-value').textContent = result.course.TIME || 'N/A';
+                } else {
+                    alert(result.message || "Course details could not be found.");
+                }
+            } catch (error) {
+                console.error("Error fetching course details:", error);
+                alert("There was an error loading course details. Please try again later.");
+            }
+        }
+    
+        // Function to get query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        // Load course details on page load
+        document.addEventListener('DOMContentLoaded', fetchCourseDetails);
+    </script>
+    
 </body>
 </html>
