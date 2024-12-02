@@ -68,7 +68,7 @@
                     <label>Description</label>
                     <textarea class="form-control" placeholder="Enter a description here..."></textarea>
                 </div>
-                <button class="btn schedule-btn">Schedule Evaluation</button>
+                <button class="btn schedule-btn" onclick="scheduleEvaluation()">Schedule Evaluation</button>
             </div>
         </div>
     </div>
@@ -123,6 +123,65 @@
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
+
+        async function scheduleEvaluation() {
+            // Get values from the form
+            const className = document.querySelector('.details-row .detail-box:nth-child(1) .detail-value').textContent;
+            const semester = document.querySelector('.details-row .detail-box:nth-child(2) .detail-value').textContent;
+            const year = document.querySelector('.details-row .detail-box:nth-child(3) .detail-value').textContent;
+            const time = document.querySelector('.details-row .detail-box:nth-child(4) .detail-value').textContent;
+            const assignmentName = document.querySelector('.input-section .input-group:nth-child(1) input').value;
+            const openDate = document.querySelector('.input-section .input-group:nth-child(3) input.datepicker').value;
+            const openTime = document.querySelector('.input-section .input-group:nth-child(3) input[type="time"]').value;
+            const dueDate = document.querySelector('.input-section .input-group:nth-child(2) input.datepicker').value;
+            const dueTime = document.querySelector('.input-section .input-group:nth-child(2) input[type="time"]').value;
+            const description = document.querySelector('.input-section .input-group:nth-child(4) textarea').value;
+        
+            // Combine date and time into full timestamps
+            const openDateTime = `${openDate}T${openTime}`;
+            const dueDateTime = `${dueDate}T${dueTime}`;
+        
+            // Validate required fields
+            if (!assignmentName || !openDate || !dueDate || !className || !semester || !year) {
+                alert("Please fill out all required fields.");
+                return;
+            }
+        
+            // Prepare data for the API call
+            const evaluationData = {
+                className,
+                semester,
+                year,
+                time,
+                assignmentName,
+                openDate: openDateTime,
+                dueDate: dueDateTime,
+                description
+            };
+        
+            try {
+                // Send data to the backend
+                const response = await fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/schedule-evaluation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(evaluationData)
+                });
+        
+                const result = await response.json();
+        
+                if (result.success) {
+                    alert("Evaluation scheduled successfully.");
+                    // Optionally, redirect or clear the form
+                    location.reload(); // Refresh the page
+                } else {
+                    alert(result.message || "Failed to schedule evaluation.");
+                }
+            } catch (error) {
+                console.error("Error scheduling evaluation:", error);
+                alert("There was an error scheduling the evaluation. Please try again later.");
+            }
+        }
+        
     
         // Load course details on page load
         document.addEventListener('DOMContentLoaded', fetchCourseDetails);
