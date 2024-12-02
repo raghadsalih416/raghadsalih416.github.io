@@ -61,5 +61,20 @@
 
     </div>
 
+    <!-- JavaScript to handle popup and fetch course details -->
+    <script>
+
+        // Set page title and heading dynamically based on course name in URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseName = getQueryParam('course');
+            if (courseName) {
+                document.title = courseName;
+                document.querySelector('h1').textContent = courseName;
+            } else {
+                alert("Course name not found. Redirecting to courses.");
+                window.location.href = 'courses.html';
+            }
+        });
+    </script>
 </body>
 </html>
