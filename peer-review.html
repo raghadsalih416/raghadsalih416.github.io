@@ -154,17 +154,19 @@
     }
 
     // Set the course name in the <h1> heading
-    document.addEventListener('DOMContentLoaded', function() {
-        const courseName = getQueryParam('course');
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseName = getQueryParam('course');
+            console.log('Retrieved courseName:', courseName);
         
-        if (courseName) {
-            document.title = `Peer Review Form - ${courseName}`;
-            document.querySelector('h1').textContent = courseName;
-        } else {
-            alert('Course name not found. Redirecting to courses page.');
-            window.location.href = 'courses.html';
-        }
-    });
+            if (courseName) {
+                document.title = `Peer Review Form - ${courseName}`;
+                document.querySelector('h1').textContent = courseName;
+            } else {
+                alert('Course name not found. Redirecting to courses page.');
+                window.location.href = 'courses.html';
+            }
+        });
+        
 </script>
 
 <script>
