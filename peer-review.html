@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peer Review Form - Professional Writing (WRIT 300)</title>
+    <title>Peer Review Form</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
     <br>
     <!-- Main Content Wrapper -->
     <div class="peer-review-page">
-        <h1>Professional Writing (WRIT 300)</h1>
+        <h1>Course Name Placeholder</h1>
 
         <div class="content-wrapper">
             <div class="sidebar">
@@ -143,21 +143,17 @@
         </div>
     </div>
 
-    <!-- JavaScript to handle form submission -->
-<!-- JavaScript to handle form submission -->
+    <!-- JavaScript -->
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
-<script>
-    // Function to get the course name from the URL
-    function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
-
-    // Set the course name in the <h1> heading
         document.addEventListener('DOMContentLoaded', function() {
             const courseName = getQueryParam('course');
             console.log('Retrieved courseName:', courseName);
-        
+
             if (courseName) {
                 document.title = `Peer Review Form - ${courseName}`;
                 document.querySelector('h1').textContent = courseName;
@@ -166,70 +162,6 @@
                 window.location.href = 'courses.html';
             }
         });
-        
-</script>
-
-<script>
-    document.getElementById('peer-review-form').addEventListener('submit', async function(event) {
-        event.preventDefault();  // Prevents the default form submission
-
-        // Get the form values
-        const memberName = document.getElementById('memberName').value;
-        const peerName = document.getElementById('peerName').value;
-        const assignment = document.getElementById('assignment').value;
-        const className = document.getElementById('className').value;
-        const groups = document.getElementById('groups').value;
-        const professor = document.getElementById('professor').value;
-
-        const selfEvalScore = document.querySelector('input[name="quality"]:checked')?.value || 0; // Default to 0 if not checked
-        const peerRaterAvgScore = document.querySelector('input[name="reliability"]:checked')?.value || 0; // Default to 0 if not checked
-        const externalRateAvgScore = document.querySelector('input[name="communication"]:checked')?.value || 0; // Default to 0 if not checked
-        const teamSurveyScore = document.querySelector('input[name="language"]:checked')?.value || 0; // Default to 0 if not checked
-
-        try {
-            // Send a POST request to your Heroku backend
-            const response = await fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/submit-peer-review', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    memberName,
-                    peerName,
-                    evaluationId: Math.floor(Math.random() * 100000), // Generate a random evaluation ID for demonstration
-                    selfEvalScore,
-                    peerRaterAvgScore,
-                    externalRateAvgScore,
-                    teamSurveyScore,
-                    assignment,
-                    className,
-                    groups,
-                    professor
-                }),
-            });
-
-            // Check if the response is ok
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            // Parse the response as JSON
-            const result = await response.json();
-
-            // Handle the result
-            if (result.success) {
-                alert('Peer review submitted successfully!');
-                // Optionally redirect or clear the form here
-                // window.location.href = 'somepage.html'; // Redirect to another page
-            } else {
-                alert('Error: ' + result.message);
-            }
-        } catch (error) {
-            console.error('Error during submission:', error);
-            alert('There was an error during submission. Please try again later.');
-        }
-    });
-</script>
-
+    </script>
 </body>
 </html>
