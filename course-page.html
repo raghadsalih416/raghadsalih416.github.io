@@ -69,6 +69,10 @@
             if (courseName) {
                 document.title = courseName; // Set the page title
                 document.querySelector('h1').textContent = courseName; // Set the heading
+                
+                // Dynamically update the "Peer Review" link
+                const peerReviewLink = document.querySelector('.sidebar a[href="peer-review.html"]');
+                peerReviewLink.setAttribute('href', `peer-review.html?course=${encodeURIComponent(courseName)}`);
             } else {
                 alert("Course name not found. Redirecting to courses.");
                 window.location.href = 'courses.html';
