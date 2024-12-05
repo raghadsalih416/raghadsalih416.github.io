@@ -145,23 +145,27 @@
 
     <!-- JavaScript -->
     <script>
+        // Function to get the course name from the URL
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+            const value = urlParams.get(param);
+            console.log(`Query param "${param}" value:`, value); // Debugging
+            return value ? decodeURIComponent(value) : null; // Decode special characters
         }
-
+    
+        // Set the course name in the <h1> heading
         document.addEventListener('DOMContentLoaded', function() {
             const courseName = getQueryParam('course');
-            console.log('Retrieved courseName:', courseName);
-
+            
             if (courseName) {
-                document.title = `Peer Review Form - ${courseName}`;
-                document.querySelector('h1').textContent = courseName;
+                document.title = `Peer Review Form - ${courseName}`; // Set page title
+                document.querySelector('h1').textContent = courseName; // Update <h1>
             } else {
                 alert('Course name not found. Redirecting to courses page.');
-                window.location.href = 'courses.html';
+                window.location.href = 'courses.html'; // Redirect if not found
             }
         });
     </script>
+    
 </body>
 </html>
