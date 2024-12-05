@@ -54,9 +54,10 @@
 
     <script>
         async function submitEvaluation() {
+            const course = new URLSearchParams(window.location.search).get('course'); // Extract course from the query string
             const data = {
                 professorEmail: document.getElementById("professorEmail").value,
-                className: document.getElementById("className").value,
+                className: course || document.getElementById("className").value, // Use course from query string
                 semester: document.getElementById("semester").value,
                 year: document.getElementById("year").value,
                 time: document.getElementById("time").value,
@@ -65,9 +66,11 @@
                 dueDate: document.getElementById("dueDate").value,
                 description: document.getElementById("description").value,
             };
-
+            
+        
             try {
-                const response = await fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/schedule-evaluation', {
+                const response = await fetch('https://arcane-earth-62039-16a4ff83ac0a.herokuapp.com/schedule-evaluation', { 
+                    // Make sure this URL is the API endpoint
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),
@@ -79,6 +82,7 @@
                 console.error("Error:", error);
             }
         }
+        
     </script>
 </body>
 </html>

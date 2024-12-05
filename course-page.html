@@ -22,18 +22,7 @@
 
     <!-- Course Detail Section -->
     <div class="course-page">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <h1>Course Details</h1>
-
-
-
-
 
         <div class="content-container">
             <div class="sidebar">
@@ -57,19 +46,22 @@
                 </a>
             </div>
         </div>
-
-
     </div>
 
-    <!-- JavaScript to handle popup and fetch course details -->
+    <!-- JavaScript to handle dynamic course details -->
     <script>
+        // Define the getQueryParam function to extract query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
 
         // Set page title and heading dynamically based on course name in URL
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const courseName = getQueryParam('course');
             if (courseName) {
-                document.title = courseName;
-                document.querySelector('h1').textContent = courseName;
+                document.title = courseName; // Set the page title
+                document.querySelector('h1').textContent = courseName; // Set the heading
             } else {
                 alert("Course name not found. Redirecting to courses.");
                 window.location.href = 'courses.html';
